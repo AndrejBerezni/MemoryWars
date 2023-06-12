@@ -38,10 +38,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 25px;
+    gap: 25px;
 }
 /* Game */
 .game {
@@ -49,6 +58,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 20px;
+    flex: 1;
 }
 
 @media (max-width: 1000px) {
@@ -64,6 +74,7 @@ body {
         grid-template-rows: repeat(6, 1fr);
     }
 }
+
 /* Cards */
 .card {
     display: flex;
@@ -102,4 +113,32 @@ body {
     .card p {
         font-size: 0.7rem;
     }
+}
+
+/* Navigation */
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navigation > a {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: var(--fontColor);
+    text-decoration: none;
+    transition: .5s;
+}
+
+.navigation > a:hover {
+    color: white;
+}
+
+/* Score */
+
+.score {
+    font-weight: bold;
+    text-shadow: 2px 2px 3px black;
+    font-size: 1.3rem;
 }
