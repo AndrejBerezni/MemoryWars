@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default function Card() {
+export default function Card({src, name}) {
     return (
-        <>
-            <h1>CARD</h1>
-        </>
+        <div>
+            <img src={src} alt= {name}/>
+            <p>{name}</p>
+        </div>
     )
 }
