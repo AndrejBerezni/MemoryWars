@@ -1,9 +1,9 @@
-const timerReducer = (state = false, action) => {
+const timerReducer = (state = 0, action) => {
   switch (action.type) {
-    case "TIMER ON":
-      return true;
-    case "TIMER OFF":
-      return false;
+    case "INCREMENT TIMER":
+      return state + 1;
+    case "RESET TIMER":
+      return 0;
     default:
       return state;
   }

@@ -8,8 +8,9 @@ import { useDispatch } from 'react-redux';
 export default function Game() {
     const dispatch = useDispatch();
 
+    /* Keeping these two states here instead of in the store
+    because they are not used anywhere outside this component */
     const [cardsArray, setCardsArray] = useState(cards)
-    const [gameOn, setGameOn] = useState(false);
     const [clickedCards, setClickedCards] = useState([]);
 
     function shuffleArray(array) {
@@ -24,9 +25,6 @@ export default function Game() {
     }
 
     function handleCardClick(id) {
-        if (!gameOn) {
-            setGameOn(true)
-        }
         if (clickedCards.indexOf(id) < 0) {
             setClickedCards([...clickedCards, id]);
             dispatch(incrementScore())
@@ -34,8 +32,6 @@ export default function Game() {
         } else {
             setClickedCards([]);
             dispatch(resetScore());
-            setGameOn(false);
-
         }
     }
     return (
