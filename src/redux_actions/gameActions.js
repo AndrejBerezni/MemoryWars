@@ -1,13 +1,13 @@
 const startGame = () => {
-    return {
-        type: 'GAME ON'
-    }
-}
+  return {
+    type: "GAME ON",
+  };
+};
 
 const endGame = () => {
-    return {
-        type: 'GAME OVER'
-    }
-}
+  return {
+    type: "GAME OVER",
+  };
+};
 
-export {startGame, endGame}
+export { startGame, endGame };
