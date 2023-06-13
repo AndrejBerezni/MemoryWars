@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import Card from './Card';
 import cards from '../data/cards';
 import '../App.css'
+import { incrementScore, resetScore } from '../redux_actions/scoreActions';
+import { useDispatch } from 'react-redux';
 
 export default function Game() {
+    const dispatch = useDispatch();
+
     const [cardsArray, setCardsArray] = useState(cards)
     const [gameOn, setGameOn] = useState(false);
     const [clickedCards, setClickedCards] = useState([]);
-    const [score, setScore] = useState(0);
 
     function shuffleArray(array) {
         let currentIndex = array.length, randomIndex;
@@ -26,14 +29,13 @@ export default function Game() {
         }
         if (clickedCards.indexOf(id) < 0) {
             setClickedCards([...clickedCards, id]);
-            setScore(score + 1);
+            dispatch(incrementScore())
             setCardsArray(shuffleArray(cardsArray));
-            console.log(clickedCards, score, gameOn)
         } else {
             setClickedCards([]);
-            setScore(0);
+            dispatch(resetScore());
             setGameOn(false);
-            console.log(`Game over. Score: ${score}`)
+
         }
     }
     return (
