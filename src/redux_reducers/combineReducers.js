@@ -5,7 +5,7 @@ import gameOnReducer from "./gameOn";
 
 const combinedReducers = combineReducers({
   score: scoreReducer,
-  timerRunning: timerReducer,
+  timer: timerReducer,
   gameOn: gameOnReducer,
 });
 
