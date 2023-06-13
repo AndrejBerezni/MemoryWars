@@ -4,7 +4,6 @@ import cards from '../data/cards';
 import '../App.css'
 import { incrementScore, resetScore } from '../redux_actions/scoreActions';
 import { startGame, endGame } from '../redux_actions/gameActions'
-import { resetTimer } from '../redux_actions/timerActions';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function Game() {
@@ -35,11 +34,12 @@ export default function Game() {
             setClickedCards([...clickedCards, id]);
             dispatch(incrementScore())
             setCardsArray(shuffleArray(cardsArray));
+            console.log(cardsArray, clickedCards, gameOn)
         } else {
             setClickedCards([]);
-            dispatch(endGame())
+            dispatch(endGame());
             dispatch(resetScore());
-            dispatch(resetTimer());
+            console.log(cardsArray, clickedCards, gameOn)
         }
     }
     return (
