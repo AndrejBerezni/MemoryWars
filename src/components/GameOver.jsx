@@ -20,8 +20,8 @@ export default function GameOver() {
                 {time - Math.floor(time / 60) * 60 > 9 ? Math.round(time - Math.floor(time / 60) * 60) : `0${Math.round(time - Math.floor(time / 60) * 60)}`}
             </h2>
             <form>
-                <label for='player-name'>Your name</label>
-                <input id='player-name' name='player-name' type='text' max='30' />
+                <label for='player-name'>Your name:</label>
+                <input id='player-name' name='player-name' type='text' max='30' required/>
                 <button type='submit' onClick={(e) => {
                     e.preventDefault();
                     dispatch(resetScore());
