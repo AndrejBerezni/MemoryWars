@@ -10,4 +10,16 @@ const resetTimer = () => {
   };
 };
 
-export { incrementTimer, resetTimer };
+const stopTimer = () => {
+  return {
+    type: "STOP TIMER"
+  }
+}
+
+const startTimer = () => {
+  return {
+    type: "START TIMER"
+  }
+}
+
+export { incrementTimer, resetTimer, stopTimer, startTimer };

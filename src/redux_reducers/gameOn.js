@@ -1,8 +1,8 @@
-const gameOnReducer = (state = false, action) => {
+const gameOnReducer = (state = true, action) => {
   switch (action.type) {
     case "GAME ON":
       return true;
-    case "GAME OVER":
+    case "GAME OFF":
       return false;
     default:
       return state;

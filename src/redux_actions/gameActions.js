@@ -6,7 +6,7 @@ const startGame = () => {
 
 const endGame = () => {
   return {
-    type: "GAME OVER",
+    type: "GAME OFF",
   };
 };
 

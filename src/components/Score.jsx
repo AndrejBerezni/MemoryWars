@@ -1,24 +1,25 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { incrementTimer, resetTimer } from '../redux_actions/timerActions';
+import { incrementTimer } from '../redux_actions/timerActions';
 
 export default function Score() {
     const currentScore = useSelector(state => state.score);
-    const currentTime = useSelector(state => state.timer);
-    const gameOn = useSelector(state => state.gameOn);
+    const currentTime = useSelector(state => state.timer.value);
+    // const gameOn = useSelector(state => state.gameOn);
+    const isTimerRunning = useSelector(state=> state.timer.isRunning)
     const dispatch = useDispatch();
 
     useEffect(() => {
         let interval = null;
-        if (gameOn) {
+        if (isTimerRunning) {
             interval = setInterval(() => {
                 dispatch(incrementTimer())
             }, 1000);
         } else {
-            dispatch(resetTimer())
+            clearInterval(interval)
         }
         return () => clearInterval(interval);
-    }, [dispatch, gameOn]);
+    }, [dispatch,isTimerRunning]);
     return (
         <div className='score'>
             <p>Points: {currentScore} | Time:

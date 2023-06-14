@@ -143,3 +143,15 @@ body {
     text-shadow: 2px 2px 3px black;
     font-size: 1.3rem;
 }
+
+/* Game over */
+
+.game-over {
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    width: 40%;
+    height: 40%;
+    background-color: white;
+    border: 1px solid black;
+}
