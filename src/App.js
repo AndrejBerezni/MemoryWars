@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Game />}/>
         <Route path="/highscores" element={<Highscores />}/>
+        <Route path="*" element={<Game />}/>
         <Route />
       </Routes>
       <Score />
