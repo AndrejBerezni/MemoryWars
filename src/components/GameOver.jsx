@@ -5,6 +5,7 @@ import { resetScore } from '../redux_actions/scoreActions';
 import { startGame } from '../redux_actions/gameActions';
 import { resetTimer } from '../redux_actions/timerActions';
 import { addScore } from '../config/firebase';
+import { motion } from 'framer-motion';
 
 export default function GameOver() {
     const dispatch = useDispatch()
@@ -24,7 +25,20 @@ export default function GameOver() {
         dispatch(startGame());
     }
     return (
-        <div className='game-over'>
+        <motion.div
+        className='game-over'
+        animate = {{
+            scale: 1,
+            opacity: 1
+        }}
+        initial={{
+            scale: 0,
+            opacity: 0
+        }}
+        transition={{
+            duration: 0.5
+        }}
+        >
             <h1>GAME OVER</h1>
             <h2>Total guesses: {score}</h2>
             <h2>
@@ -37,6 +51,6 @@ export default function GameOver() {
                 <input id='player-name' name='player-name' type='text' max='30' required/>
                 <button type='submit'>Submit</button>
             </form>
-        </div>
+        </motion.div>
     )
 }

@@ -6,15 +6,14 @@ import { incrementScore } from '../redux_actions/scoreActions';
 import { startTimer, stopTimer } from '../redux_actions/timerActions';
 // import { gameOver} from '../redux_actions/gameOverActions';
 import { endGame } from '../redux_actions/gameActions'
-
 import { useSelector, useDispatch } from 'react-redux';
 import GameOver from './GameOver';
 
 export default function Game() {
     const dispatch = useDispatch();
     const isTimerRunning = useSelector(state => state.timer.isRunning);
-    const gameInProgress = useSelector(state => state.gameOn)
-    const currentScore = useSelector(state => state.score)
+    const gameInProgress = useSelector(state => state.gameOn);
+    const currentScore = useSelector(state => state.score);
 
     /* Keeping these two states here instead of in the store
     because they are not used anywhere outside this component */
@@ -62,7 +61,6 @@ export default function Game() {
             {cardsArray.map(card => (
                 <Card key={card.id} id={card.id} src={card.src} name={card.name} handleClick={handleCardClick} />
             ))}
-            { }
         </div>
     )
 }

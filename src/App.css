@@ -166,6 +166,7 @@ body {
     gap: 5%;
     font-weight: bold;
     font-size: 1.4rem;
+    z-index: 1;
 }
 
 .game-over h1 {
