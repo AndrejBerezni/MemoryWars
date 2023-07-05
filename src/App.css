@@ -169,8 +169,9 @@ body {
     z-index: 1;
 }
 
-.game-over h1 {
+.game-over-title {
     font-size: 2rem;
+    z-index: 2;
 }
 
 .game-over > form {
