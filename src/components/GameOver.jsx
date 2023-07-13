@@ -24,6 +24,13 @@ export default function GameOver() {
         dispatch(resetTimer());
         dispatch(startGame());
     }
+
+    const handleCloseForm = () => {
+        dispatch(resetScore());
+        dispatch(resetTimer());
+        dispatch(startGame());
+    }
+
     return (
         <motion.div
             className='game-over'
@@ -39,6 +46,12 @@ export default function GameOver() {
                 duration: 0.2
             }}
         >
+            <button
+                className='close-game-over'
+                onClick={handleCloseForm}
+            >
+                X
+            </button>
             <motion.h1
                 className='game-over-title'
                 animate={{

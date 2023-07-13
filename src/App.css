@@ -202,6 +202,13 @@ body {
     transition: .3s;
 }
 
+.close-game-over {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    max-width: 50px;
+}
+
 .game-over button:hover {
     transform: translateY(2px);
     cursor: pointer;
