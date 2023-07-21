@@ -34,7 +34,8 @@ async function addScore(entry) {
   await addDoc(highscoresCollectionRef, {
     name: entry.name,
     score: entry.score,
-    time: entry.time
+    time: entry.time,
+    id: entry.id
   })
 }
 

@@ -6,6 +6,7 @@ import { startGame } from '../redux_actions/gameActions';
 import { resetTimer } from '../redux_actions/timerActions';
 import { addScore } from '../config/firebase';
 import { motion } from 'framer-motion';
+import {v4 as uuid} from 'uuid';
 
 //Objects for framer properties to be reused
 const framerAnimate = {
@@ -34,7 +35,8 @@ export default function GameOver() {
         await addScore({
             name: playerName,
             score: score,
-            time: time
+            time: time,
+            id: uuid()
         });
         dispatch(resetScore());
         dispatch(resetTimer());
