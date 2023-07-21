@@ -1,12 +1,7 @@
-import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React from 'react';
+import { motion} from 'framer-motion';
 
 export default function Card({ src, name, handleClick, id }) {
-  const controls = useAnimation();
-
-  useEffect(() => {
-    controls.start({ rotateY: 360 });
-  }, [id, controls]);
 
   return (
     <motion.div

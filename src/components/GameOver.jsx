@@ -7,6 +7,22 @@ import { resetTimer } from '../redux_actions/timerActions';
 import { addScore } from '../config/firebase';
 import { motion } from 'framer-motion';
 
+//Objects for framer properties to be reused
+const framerAnimate = {
+    scale: 1,
+    opacity: 1
+}
+
+const framerInitial = {
+    scale: 0,
+    opacity: 0
+}
+
+const framerTransition = {
+    duration: 1.2,
+    type: 'spring'
+}
+
 export default function GameOver() {
     const dispatch = useDispatch()
     const score = useSelector(state => state.score);
@@ -34,14 +50,8 @@ export default function GameOver() {
     return (
         <motion.div
             className='game-over'
-            animate={{
-                scale: 1,
-                opacity: 1
-            }}
-            initial={{
-                scale: 0,
-                opacity: 0
-            }}
+            animate={framerAnimate}
+            initial={framerInitial}
             transition={{
                 duration: 0.2
             }}
@@ -54,48 +64,23 @@ export default function GameOver() {
             </button>
             <motion.h1
                 className='game-over-title'
-                animate={{
-                    scale: 1,
-                    opacity: 1
-                }}
-                initial={{
-                    scale: 0,
-                    opacity: 0
-                }}
-                transition={{
-                    duration: 1.2,
-                    type: 'spring',
-                }}
+                animate={framerAnimate}
+                initial={framerInitial}
+                transition={framerTransition}
             >
                 GAME OVER
             </motion.h1>
             <motion.h2
-                animate={{
-                    scale: 1,
-                    opacity: 1
-                }}
-                initial={{
-                    scale: 0,
-                    opacity: 0
-                }}
-                transition={{
-                    duration: 1.2,
-                    type: 'spring',
+                animate={framerAnimate}
+                initial={framerInitial}
+                transition={{...framerTransition,
                     delay: 0.8
                 }}
             >Total guesses: {score}</motion.h2>
             <motion.h2
-                animate={{
-                    scale: 1,
-                    opacity: 1
-                }}
-                initial={{
-                    scale: 0,
-                    opacity: 0
-                }}
-                transition={{
-                    duration: 1.2,
-                    type: 'spring',
+                animate={framerAnimate}
+                initial={framerInitial}
+                transition={{...framerTransition,
                     delay: 0.8
                 }}
             >
@@ -104,17 +89,10 @@ export default function GameOver() {
                 {time - Math.floor(time / 60) * 60 > 9 ? Math.round(time - Math.floor(time / 60) * 60) : `0${Math.round(time - Math.floor(time / 60) * 60)}`}
             </motion.h2>
             <motion.form
-                animate={{
-                    scale: 1,
-                    opacity: 1
-                }}
-                initial={{
-                    scale: 0,
-                    opacity: 0
-                }}
+                animate={framerAnimate}
+                initial={framerInitial}
                 transition={{
-                    duration: 1.2,
-                    type: 'spring',
+                    ...framerTransition,
                     delay: 1.4
                 }}
                 onSubmit={handleSubmit}
