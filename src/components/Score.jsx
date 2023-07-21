@@ -6,10 +6,10 @@ import { motion } from 'framer-motion';
 export default function Score() {
     const currentScore = useSelector(state => state.score);
     const currentTime = useSelector(state => state.timer.value);
-    // const gameOn = useSelector(state => state.gameOn);
     const isTimerRunning = useSelector(state=> state.timer.isRunning)
     const dispatch = useDispatch();
 
+    // Start-Stop timer
     useEffect(() => {
         let interval = null;
         if (isTimerRunning) {

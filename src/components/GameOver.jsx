@@ -6,7 +6,7 @@ import { startGame } from '../redux_actions/gameActions';
 import { resetTimer } from '../redux_actions/timerActions';
 import { addScore } from '../config/firebase';
 import { motion } from 'framer-motion';
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 //Objects for framer properties to be reused
 const framerAnimate = {
@@ -24,11 +24,13 @@ const framerTransition = {
     type: 'spring'
 }
 
+// Component
 export default function GameOver() {
     const dispatch = useDispatch()
     const score = useSelector(state => state.score);
     const time = useSelector(state => state.timer.value);
 
+    // Save score to database
     const handleSubmit = async (e) => {
         e.preventDefault();
         const playerName = e.target.elements['player-name'].value;
@@ -43,6 +45,7 @@ export default function GameOver() {
         dispatch(startGame());
     }
 
+    // Close without saving score
     const handleCloseForm = () => {
         dispatch(resetScore());
         dispatch(resetTimer());
@@ -75,14 +78,16 @@ export default function GameOver() {
             <motion.h2
                 animate={framerAnimate}
                 initial={framerInitial}
-                transition={{...framerTransition,
+                transition={{
+                    ...framerTransition,
                     delay: 0.8
                 }}
             >Total guesses: {score}</motion.h2>
             <motion.h2
                 animate={framerAnimate}
                 initial={framerInitial}
-                transition={{...framerTransition,
+                transition={{
+                    ...framerTransition,
                     delay: 0.8
                 }}
             >
